@@ -16,7 +16,10 @@ public class BankAccount {
 
     public void transfer(BankAccount otherPerson, double money) {
         setCount(count - money);
-        otherPerson.setCount(money * 0.99);
+
+        if (getCount()<0) {
+            throw new IllegalArgumentException("Not enough money");
+        }else otherPerson.setCount(money * 0.99);
     }
 
     public void setCount(double count) {

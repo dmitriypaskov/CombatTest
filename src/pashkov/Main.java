@@ -25,7 +25,7 @@ public class Main {
         boss.add(SALARY_FOR_ALL);
         boss.transfer(ivan, 10000);
         boss.transfer(alex, 15000);
-        boss.transfer(sergey, 20000);
+        boss.transfer(sergey, 80000);
         bossSalary = boss.getCount();
         ivanSalary = ivan.getCount();
         alexSalary = alex.getCount();
