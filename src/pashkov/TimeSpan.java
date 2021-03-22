@@ -13,34 +13,26 @@ public class TimeSpan {
         this.minutes = minutes;
     }
 
+
     public void add(TimeSpan timeSpan) {
-        int fullMinutes = hours * 60 + minutes + timeSpan.getHours() * 60 + timeSpan.getMinutes();
-        if (fullMinutes > 0) {
-            int fullHours = fullMinutes / 60;
-            int restMinutes = fullMinutes - fullHours * 60;
-            if (fullHours < 10 && restMinutes < 10) {
-                System.out.println("0" + fullHours + ":" + "0" + restMinutes);
-            } else if (fullHours < 10) {
-                System.out.println("0" + fullHours + ":" + restMinutes);
-            } else if (restMinutes < 10) {
-                System.out.println(fullHours + ":" + "0" + restMinutes);
-            } else System.out.println(fullHours + ":" + restMinutes);
-        } else System.out.println("You input incorrect Time");
+        minutes = hours * 60 + minutes + timeSpan.getHours() * 60 + timeSpan.getMinutes();
+        if (minutes > 0) {
+            int fullHours = minutes / 60;
+            int restMinutes = minutes - fullHours * 60;
+            setHours(fullHours);
+            setMinutes(restMinutes);
+        } else throw new IllegalArgumentException("Incorrect number of minutes");
     }
+
 
     public void sub(TimeSpan timeSpan) {
         int fullMinutes = (hours * 60 + minutes) - (timeSpan.getHours() * 60 + timeSpan.getMinutes());
         if (fullMinutes > 0) {
             int fullHours = fullMinutes / 60;
             int restMinutes = fullMinutes - fullHours * 60;
-            if (fullHours < 10 && restMinutes < 10) {
-                System.out.println("0" + fullHours + ":" + "0" + restMinutes);
-            } else if (fullHours < 10) {
-                System.out.println("0" + fullHours + ":" + restMinutes);
-            } else if (restMinutes < 10) {
-                System.out.println(fullHours + ":" + "0" + restMinutes);
-            } else System.out.println(fullHours + ":" + restMinutes);
-        } else System.out.println("You input incorrect Time");
+            setHours(fullHours);
+            setMinutes(restMinutes);
+        } else throw new IllegalArgumentException("Incorrect number of minutes");
     }
 
     public void mult(double times) {
@@ -48,14 +40,9 @@ public class TimeSpan {
         if (fullMinutes > 0) {
             int fullHours = (int) fullMinutes / 60;
             int restMinutes = (int) fullMinutes - fullHours * 60;
-            if (fullHours < 10 && restMinutes < 10) {
-                System.out.println("0" + fullHours + ":" + "0" + restMinutes);
-            } else if (fullHours < 10) {
-                System.out.println("0" + fullHours + ":" + restMinutes);
-            } else if (restMinutes < 10) {
-                System.out.println(fullHours + ":" + "0" + restMinutes);
-            } else System.out.println(fullHours + ":" + restMinutes);
-        } else System.out.println("You input incorrect Time");
+            setHours(fullHours);
+            setMinutes(restMinutes);
+        } else throw new IllegalArgumentException("Incorrect number of minutes");
     }
 
     public int getHours() {
@@ -76,10 +63,7 @@ public class TimeSpan {
 
     @Override
     public String toString() {
-        return "TimeSpan{" +
-                "hours=" + hours +
-                ", minutes=" + minutes +
-                '}';
+        return "TimeSpan{" + hours + " : " + minutes + '}';
     }
 }
 
