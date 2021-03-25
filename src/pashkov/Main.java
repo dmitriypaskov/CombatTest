@@ -1,5 +1,7 @@
 package pashkov;
 
+import java.util.Arrays;
+
 public class Main {
 
     private static final double SALARY_FOR_ALL = 100000;
@@ -25,7 +27,7 @@ public class Main {
         boss.add(SALARY_FOR_ALL);
         boss.transfer(ivan, 10000);
         boss.transfer(alex, 15000);
-        boss.transfer(sergey, 80000);
+        boss.transfer(sergey, 20000);
         bossSalary = boss.getCount();
         ivanSalary = ivan.getCount();
         alexSalary = alex.getCount();
@@ -35,6 +37,11 @@ public class Main {
         System.out.println("Salary for alex " + alex.getCount());
         System.out.println("Salary for sergey " + sergey.getCount());
         System.out.println("Commission for bank " + calculateCommission());
+        System.out.println("=====================================================================================");
+
+        Backpack backpack = new Backpack(15);
+        backpack.fillTheBackpack();
+        backpack.printInfoAboutContentsBackpack();
     }
 
     private static double calculateCommission() {
